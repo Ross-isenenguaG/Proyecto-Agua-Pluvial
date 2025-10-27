@@ -1,0 +1,45 @@
+var lat = 19.2860782;
+var lon = -99.7459885;
+    
+var map = L.map('map').setView([lat, lon], 13);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        const ubicaciones = [
+            { lat: 19.2860782, lon: -99.7459885, mensaje: "San Miguel Zinacantepec - Escasez de agua" },
+            { lat: 19.299369, lon: -99.7305049, mensaje: "San Luis Mextepec - Escasez de agua" },
+            { lat: 19.2769, lon: -99.7755827, mensaje: "San Antonio Acahualco - Escasez de agu" },
+            { lat: 19.2661351, lon: -99.7595672, mensaje: "Col. Folores Magon - Escasez de agua" } 
+        ];
+
+        ubicaciones.forEach(ubicacion => {
+            L.marker([ubicacion.lat, ubicacion.lon])
+                .addTo(map)
+                .bindPopup(`<strong>${ubicacion.mensaje}</strong>`);
+        });
+
+        
+const preguntas = document.querySelectorAll('.pregunta');
+preguntas.forEach(pregunta => {
+    pregunta.addEventListener('click', () => {
+        const abiertas = document.querySelectorAll('.respuesta.activa');
+        abiertas.forEach(r => {
+          if (r !== pregunta.nextElementSibling) {
+            r.classList.remove('activa');
+          }
+        });
+        pregunta.nextElementSibling.classList.toggle('activa');
+      });
+    });
+
+    
+    document.addEventListener('DOMContentLoaded', function () {
+  const menuToggle = document.getElementById('menu-toggle');
+  const nav = document.getElementById('nav');
+
+  menuToggle.addEventListener('click', () => {
+    nav.classList.toggle('active');
+  });
+});
