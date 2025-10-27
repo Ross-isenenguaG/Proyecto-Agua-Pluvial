@@ -20,7 +20,7 @@ var map = L.map('map').setView([lat, lon], 13);
                 .bindPopup(`<strong>${ubicacion.mensaje}</strong>`);
         });
 
-        
+
 const preguntas = document.querySelectorAll('.pregunta');
 preguntas.forEach(pregunta => {
     pregunta.addEventListener('click', () => {
@@ -33,13 +33,3 @@ preguntas.forEach(pregunta => {
         pregunta.nextElementSibling.classList.toggle('activa');
       });
     });
-
-    
-    document.addEventListener('DOMContentLoaded', function () {
-  const menuToggle = document.getElementById('menu-toggle');
-  const nav = document.getElementById('nav');
-
-  menuToggle.addEventListener('click', () => {
-    nav.classList.toggle('active');
-  });
-});
